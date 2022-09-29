@@ -1,0 +1,147 @@
+.page-headers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+
+  h1 {
+    font-size: inherit;
+    font-weight: 500;
+  }
+}
+
+.product {
+  &__cover {
+    width: 100%;
+    aspect-ratio: 1/1.2;
+    overflow: hidden;
+    border-radius: 12%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  &__title {
+    margin: 0 0;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #0c151a;
+    max-width: 40%;
+  }
+
+  &__colors {
+    width: 60%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: start;
+    gap: 0.5rem;
+  }
+
+  &__sizes {
+    width: 100%;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+  }
+
+  &__price {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #0c151a;
+
+    i {
+      margin-left: 0.5rem;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.size-options {
+  margin-top: 1.5rem;
+
+  &__title {
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+    color: #0c151a;
+    text-transform: uppercase;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #dedede;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  &__item {
+    span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        aspect-ratio: 1/1;
+        text-transform: uppercase;
+        border-radius: 10px;
+        background-color: transparent;
+        text-align: center;
+        line-height: 2rem;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+    }
+  }
+
+  &__item.--active, &__item:hover {
+      span {
+      background-color: #0c151a;
+      color: #fff;
+      }
+  }
+}
+
+.color-options {
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.1s ease-in-out;
+
+    &.--active, &:hover {
+      border: 1px solid currentColor;
+    }
+
+    > span {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        display: inline-block;
+        background: currentColor;
+    }
+  }
+}

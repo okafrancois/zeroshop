@@ -1,0 +1,27 @@
+
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  &__option.--active  {
+    background: #0c151a;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 15px;
+    min-width: 80px;
+  }
+}
+
+.products {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1rem;
+  justify-content: space-between;
+
+  > * {
+    width: calc(50% - 1rem);
+  }
+}

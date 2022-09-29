@@ -1,0 +1,493 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "attributes": {
+        "title": "Marron sweatshirt",
+        "description": "An Marron sweatshirt which is nothing like Marron.",
+        "price": 548.99,
+        "createdAt": "2022-09-27T20:37:23.024Z",
+        "updatedAt": "2022-09-28T15:21:52.162Z",
+        "publishedAt": "2022-09-27T20:37:33.971Z",
+        "discountPercentage": 0,
+        "rating": 5.2,
+        "stock": 5,
+        "brand": "No brand",
+        "isInWishlist": false,
+        "product_category": {
+          "data": {
+            "id": 2,
+            "attributes": {
+              "name": "Women",
+              "dataname": "women",
+              "createdAt": "2022-09-27T20:10:16.343Z",
+              "updatedAt": "2022-09-27T20:10:16.343Z"
+            }
+          }
+        },
+        "thumbnail": {
+          "data": {
+            "id": 2,
+            "attributes": {
+              "name": "image-zero-3.jpg",
+              "alternativeText": "image-zero-3.jpg",
+              "caption": "image-zero-3.jpg",
+              "width": 390,
+              "height": 471,
+              "formats": {
+                "thumbnail": {
+                  "name": "thumbnail_image-zero-3.jpg",
+                  "hash": "thumbnail_image_zero_3_a8a3e82df5",
+                  "ext": ".jpg",
+                  "mime": "image/jpeg",
+                  "path": null,
+                  "width": 129,
+                  "height": 156,
+                  "size": 3.26,
+                  "url": "/uploads/thumbnail_image_zero_3_a8a3e82df5.jpg"
+                }
+              },
+              "hash": "image_zero_3_a8a3e82df5",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 13.75,
+              "url": "/uploads/image_zero_3_a8a3e82df5.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2022-09-27T20:36:32.304Z",
+              "updatedAt": "2022-09-27T20:36:32.304Z"
+            }
+          }
+        },
+        "images": {
+          "data": null
+        },
+        "colors": {
+          "data": [
+            {
+              "id": 1,
+              "attributes": {
+                "name": "black",
+                "createdAt": "2022-09-27T20:22:36.027Z",
+                "updatedAt": "2022-09-28T10:25:50.995Z",
+                "hexacode": "#000"
+              }
+            },
+            {
+              "id": 5,
+              "attributes": {
+                "name": "violet",
+                "createdAt": "2022-09-27T20:24:01.129Z",
+                "updatedAt": "2022-09-28T10:29:07.982Z",
+                "hexacode": "#EE82EE"
+              }
+            },
+            {
+              "id": 7,
+              "attributes": {
+                "name": "maroon",
+                "createdAt": "2022-09-27T20:24:59.460Z",
+                "updatedAt": "2022-09-28T10:28:37.926Z",
+                "hexacode": "#7e644d"
+              }
+            }
+          ]
+        },
+        "sizes": {
+          "data": [
+            {
+              "id": 2,
+              "attributes": {
+                "name": "Small",
+                "shortname": "s",
+                "createdAt": "2022-09-27T20:21:17.852Z",
+                "updatedAt": "2022-09-27T20:21:17.852Z"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 2,
+      "attributes": {
+        "title": "A pink dress",
+        "description": "An Pink sweatshirt which is nothing like Pink.",
+        "price": 238.99,
+        "createdAt": "2022-09-27T20:39:09.949Z",
+        "updatedAt": "2022-09-28T15:21:45.283Z",
+        "publishedAt": "2022-09-27T20:39:11.260Z",
+        "discountPercentage": 20,
+        "rating": 5,
+        "stock": 20,
+        "brand": "No brand",
+        "isInWishlist": true,
+        "product_category": {
+          "data": {
+            "id": 2,
+            "attributes": {
+              "name": "Women",
+              "dataname": "women",
+              "createdAt": "2022-09-27T20:10:16.343Z",
+              "updatedAt": "2022-09-27T20:10:16.343Z"
+            }
+          }
+        },
+        "thumbnail": {
+          "data": {
+            "id": 3,
+            "attributes": {
+              "name": "image-zero-4.jpg",
+              "alternativeText": "image-zero-4.jpg",
+              "caption": "image-zero-4.jpg",
+              "width": 390,
+              "height": 471,
+              "formats": {
+                "thumbnail": {
+                  "name": "thumbnail_image-zero-4.jpg",
+                  "hash": "thumbnail_image_zero_4_143fe0e9a8",
+                  "ext": ".jpg",
+                  "mime": "image/jpeg",
+                  "path": null,
+                  "width": 129,
+                  "height": 156,
+                  "size": 3.86,
+                  "url": "/uploads/thumbnail_image_zero_4_143fe0e9a8.jpg"
+                }
+              },
+              "hash": "image_zero_4_143fe0e9a8",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 18.64,
+              "url": "/uploads/image_zero_4_143fe0e9a8.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2022-09-27T20:36:32.316Z",
+              "updatedAt": "2022-09-27T20:36:32.316Z"
+            }
+          }
+        },
+        "images": {
+          "data": null
+        },
+        "colors": {
+          "data": [
+            {
+              "id": 3,
+              "attributes": {
+                "name": "lightblue",
+                "createdAt": "2022-09-27T20:23:21.667Z",
+                "updatedAt": "2022-09-28T10:27:48.582Z",
+                "hexacode": "#ADD8E6"
+              }
+            },
+            {
+              "id": 5,
+              "attributes": {
+                "name": "violet",
+                "createdAt": "2022-09-27T20:24:01.129Z",
+                "updatedAt": "2022-09-28T10:29:07.982Z",
+                "hexacode": "#EE82EE"
+              }
+            },
+            {
+              "id": 6,
+              "attributes": {
+                "name": "pink",
+                "createdAt": "2022-09-27T20:24:30.567Z",
+                "updatedAt": "2022-09-28T10:28:53.443Z",
+                "hexacode": "#fb607b"
+              }
+            }
+          ]
+        },
+        "sizes": {
+          "data": [
+            {
+              "id": 2,
+              "attributes": {
+                "name": "Small",
+                "shortname": "s",
+                "createdAt": "2022-09-27T20:21:17.852Z",
+                "updatedAt": "2022-09-27T20:21:17.852Z"
+              }
+            },
+            {
+              "id": 3,
+              "attributes": {
+                "name": "Medium",
+                "shortname": "m",
+                "createdAt": "2022-09-27T20:21:36.511Z",
+                "updatedAt": "2022-09-27T20:21:36.511Z"
+              }
+            },
+            {
+              "id": 5,
+              "attributes": {
+                "name": "Extra Large",
+                "shortname": "xl",
+                "createdAt": "2022-09-27T20:22:01.183Z",
+                "updatedAt": "2022-09-27T20:22:01.183Z"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 3,
+      "attributes": {
+        "title": "White sweatshirt",
+        "description": "An White sweatshirt which is nothing like White.",
+        "price": 389.99,
+        "createdAt": "2022-09-27T20:41:25.084Z",
+        "updatedAt": "2022-09-28T12:21:03.676Z",
+        "publishedAt": "2022-09-27T20:41:52.185Z",
+        "discountPercentage": 15,
+        "rating": 25,
+        "stock": 5,
+        "brand": "No brand",
+        "isInWishlist": false,
+        "product_category": {
+          "data": {
+            "id": 1,
+            "attributes": {
+              "name": "Men",
+              "dataname": "men",
+              "createdAt": "2022-09-27T20:09:59.037Z",
+              "updatedAt": "2022-09-27T20:09:59.037Z"
+            }
+          }
+        },
+        "thumbnail": {
+          "data": {
+            "id": 1,
+            "attributes": {
+              "name": "image-zero-2.jpg",
+              "alternativeText": "image-zero-2.jpg",
+              "caption": "image-zero-2.jpg",
+              "width": 390,
+              "height": 471,
+              "formats": {
+                "thumbnail": {
+                  "name": "thumbnail_image-zero-2.jpg",
+                  "hash": "thumbnail_image_zero_2_09fd034680",
+                  "ext": ".jpg",
+                  "mime": "image/jpeg",
+                  "path": null,
+                  "width": 129,
+                  "height": 156,
+                  "size": 3.03,
+                  "url": "/uploads/thumbnail_image_zero_2_09fd034680.jpg"
+                }
+              },
+              "hash": "image_zero_2_09fd034680",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 14.1,
+              "url": "/uploads/image_zero_2_09fd034680.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2022-09-27T20:36:32.285Z",
+              "updatedAt": "2022-09-27T20:36:32.285Z"
+            }
+          }
+        },
+        "images": {
+          "data": null
+        },
+        "colors": {
+          "data": [
+            {
+              "id": 1,
+              "attributes": {
+                "name": "black",
+                "createdAt": "2022-09-27T20:22:36.027Z",
+                "updatedAt": "2022-09-28T10:25:50.995Z",
+                "hexacode": "#000"
+              }
+            },
+            {
+              "id": 2,
+              "attributes": {
+                "name": "lightgreen",
+                "createdAt": "2022-09-27T20:23:00.892Z",
+                "updatedAt": "2022-09-28T10:28:03.551Z",
+                "hexacode": "#90EE90"
+              }
+            },
+            {
+              "id": 8,
+              "attributes": {
+                "name": "lightgray",
+                "createdAt": "2022-09-27T20:25:14.668Z",
+                "updatedAt": "2022-09-28T10:28:18.670Z",
+                "hexacode": "#CFCFCF"
+              }
+            }
+          ]
+        },
+        "sizes": {
+          "data": [
+            {
+              "id": 3,
+              "attributes": {
+                "name": "Medium",
+                "shortname": "m",
+                "createdAt": "2022-09-27T20:21:36.511Z",
+                "updatedAt": "2022-09-27T20:21:36.511Z"
+              }
+            },
+            {
+              "id": 4,
+              "attributes": {
+                "name": "Large",
+                "shortname": "l",
+                "createdAt": "2022-09-27T20:21:52.210Z",
+                "updatedAt": "2022-09-27T20:21:52.210Z"
+              }
+            },
+            {
+              "id": 5,
+              "attributes": {
+                "name": "Extra Large",
+                "shortname": "xl",
+                "createdAt": "2022-09-27T20:22:01.183Z",
+                "updatedAt": "2022-09-27T20:22:01.183Z"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 4,
+      "attributes": {
+        "title": "Blue sweatshirt",
+        "description": "An Blue sweatshirt which is nothing like Blue.",
+        "price": 369.99,
+        "createdAt": "2022-09-27T20:43:42.600Z",
+        "updatedAt": "2022-09-28T12:20:49.034Z",
+        "publishedAt": "2022-09-27T20:44:35.793Z",
+        "discountPercentage": 0,
+        "rating": 4.5,
+        "stock": 30,
+        "brand": "No brand",
+        "isInWishlist": false,
+        "product_category": {
+          "data": {
+            "id": 2,
+            "attributes": {
+              "name": "Women",
+              "dataname": "women",
+              "createdAt": "2022-09-27T20:10:16.343Z",
+              "updatedAt": "2022-09-27T20:10:16.343Z"
+            }
+          }
+        },
+        "thumbnail": {
+          "data": {
+            "id": 6,
+            "attributes": {
+              "name": "image-zero-5.jpg",
+              "alternativeText": "image-zero-5.jpg",
+              "caption": "image-zero-5.jpg",
+              "width": 390,
+              "height": 471,
+              "formats": {
+                "thumbnail": {
+                  "name": "thumbnail_image-zero-5.jpg",
+                  "hash": "thumbnail_image_zero_5_7c9a1878d0",
+                  "ext": ".jpg",
+                  "mime": "image/jpeg",
+                  "path": null,
+                  "width": 129,
+                  "height": 156,
+                  "size": 3.95,
+                  "url": "/uploads/thumbnail_image_zero_5_7c9a1878d0.jpg"
+                }
+              },
+              "hash": "image_zero_5_7c9a1878d0",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 22.91,
+              "url": "/uploads/image_zero_5_7c9a1878d0.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2022-09-27T20:43:24.513Z",
+              "updatedAt": "2022-09-27T20:43:24.513Z"
+            }
+          }
+        },
+        "images": {
+          "data": null
+        },
+        "colors": {
+          "data": [
+            {
+              "id": 3,
+              "attributes": {
+                "name": "lightblue",
+                "createdAt": "2022-09-27T20:23:21.667Z",
+                "updatedAt": "2022-09-28T10:27:48.582Z",
+                "hexacode": "#ADD8E6"
+              }
+            },
+            {
+              "id": 8,
+              "attributes": {
+                "name": "lightgray",
+                "createdAt": "2022-09-27T20:25:14.668Z",
+                "updatedAt": "2022-09-28T10:28:18.670Z",
+                "hexacode": "#CFCFCF"
+              }
+            }
+          ]
+        },
+        "sizes": {
+          "data": [
+            {
+              "id": 2,
+              "attributes": {
+                "name": "Small",
+                "shortname": "s",
+                "createdAt": "2022-09-27T20:21:17.852Z",
+                "updatedAt": "2022-09-27T20:21:17.852Z"
+              }
+            },
+            {
+              "id": 3,
+              "attributes": {
+                "name": "Medium",
+                "shortname": "m",
+                "createdAt": "2022-09-27T20:21:36.511Z",
+                "updatedAt": "2022-09-27T20:21:36.511Z"
+              }
+            },
+            {
+              "id": 4,
+              "attributes": {
+                "name": "Large",
+                "shortname": "l",
+                "createdAt": "2022-09-27T20:21:52.210Z",
+                "updatedAt": "2022-09-27T20:21:52.210Z"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 4
+    }
+  }
+}

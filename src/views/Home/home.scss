@@ -1,0 +1,30 @@
+.home-view {
+  .cover {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 200px 200px 0 0;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    .btn {
+      width: 100%;
+    }
+  }
+
+  .cta {
+    margin-top: 40px;
+    color: #828282;
+
+    :hover {
+        color: #0c151a;
+    }
+
+    span {
+      color: #0c151a;
+    }
+  }
+}

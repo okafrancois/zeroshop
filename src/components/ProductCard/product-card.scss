@@ -1,0 +1,74 @@
+.product-card {
+  &__image {
+    position: relative;
+    display: block;
+    transition: all 0.2s cubic-bezier(.07, -1.36, .8, 2.37);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      overflow: hidden;
+      border-radius: 10%;
+    }
+
+    a {
+      display: block;
+    }
+
+    &:hover {
+      transform: scale(1.10);
+    }
+  }
+
+  &__actions {
+    position: absolute;
+    right: 0;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .fav-btn {
+      background: #fff;
+      height: 30px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+    }
+  }
+
+  &__content {
+    display: block;
+    padding-top: 1rem;
+  }
+
+  &__price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #0c151a;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #0c151a;
+    margin-top: 0.5rem;
+  }
+}
+
+.--is-hidden {
+  display: none;
+}
+
+.fadeInUp {
+  animation: fadeInUp .5s ease-in-out backwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

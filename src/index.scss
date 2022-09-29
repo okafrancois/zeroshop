@@ -1,0 +1,80 @@
+@use "components/buttons";
+
+@font-face {
+  font-family: 'Aeonik';
+  font-weight: 300;
+  src: url('./assets/fonts/aeonik/Aeonik-Thin.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  font-weight: 400;
+  src: url('./assets/fonts/aeonik/Aeonik-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  font-weight: 500;
+  src: url('./assets/fonts/aeonik/Aeonik-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  font-weight: 600;
+  src: url('./assets/fonts/aeonik/Aeonik-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Aeonik';
+  font-weight: 700;
+  src: url('./assets/fonts/aeonik/Aeonik-Black.ttf') format('truetype');
+}
+
+
+.App {
+  font-family: "Aeonik", Futura, sans-serif;
+  color: #0c151a;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  background: white;
+  padding: 10px 20px;
+  height: 100%;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  text-transform: capitalize;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #828282;
+}
+
+// reset list styles
+   ul {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+   }
