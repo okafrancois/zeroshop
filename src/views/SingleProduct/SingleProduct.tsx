@@ -1,27 +1,19 @@
 import React, {useState} from 'react';
 import './single-product.scss';
 import {Link, useParams} from "react-router-dom";
-import FloatingCart from "../../components/FloatingCart/FloatingCart";
-import {CartType, Product} from "../../components/types";
+import {Product} from "../../components/types";
 
 type SingleProductParams = {
     products: Product[];
     addToCart: (product: Product) => void;
-    currentCart: CartType;
     currencySymbol: string;
     onLikeClick: (id: number) => void;
 }
 
-const SingleProduct = ({products, addToCart, currentCart, currencySymbol, onLikeClick}: SingleProductParams) => {
+const SingleProduct = ({products, addToCart, currencySymbol, onLikeClick}: SingleProductParams) => {
     const {paramId} = useParams<string>();
     const productId = parseInt(paramId as string);
-    const {
-        title,
-        price,
-        thumbnail,
-        colors,
-        sizes
-    } = products.find((product: Product) => product.id === productId) as Product;
+    const {title, price, thumbnail, colors, sizes } = products.find((product: Product) => product.id === productId) as Product;
 
     const [activeColor, setActiveColor] = useState(colors[0].name);
 
@@ -47,7 +39,7 @@ const SingleProduct = ({products, addToCart, currentCart, currencySymbol, onLike
                     <i className="fa-solid fa-arrow-left"></i>
                 </Link>
                 <h1 className="title">Details</h1>
-                <FloatingCart cart={currentCart} currencySymbol={currencySymbol} onLikeClick={onLikeClick}/>
+                <div/>
             </div>
             <div className="product">
                 <div className="product__cover">
@@ -92,7 +84,7 @@ const SingleProduct = ({products, addToCart, currentCart, currencySymbol, onLike
                 </div>
                 <div className="product__actions">
                     <div className="product__price">
-                        <span className={"product__price-currency"}>$</span>
+                        <span className={"product__price-currency"}>{currencySymbol}</span>
                         <span className={"product__price-value"}>{price}</span>
                         <i className="fa-solid fa-tag"></i>
                     </div>

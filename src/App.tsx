@@ -4,6 +4,8 @@ import {Route, Routes} from "react-router-dom";
 import Home from "./views/Home/Home";
 import Shop from "./views/Shop/Shop";
 import {AppPropsType, CartType, Product} from "./components/types";
+import './app.scss';
+import FloatingCart from "./components/FloatingCart/FloatingCart";
 
 const App = ({products, categories, currency}: AppPropsType) => {
     const [shopData, setShopData] = useState({
@@ -18,6 +20,8 @@ const App = ({products, categories, currency}: AppPropsType) => {
         totalPrice: 0,
     });
 
+    const [floatingCartOpen, setFloatingCartOpen] = useState(false);
+
     const addProductToCart = (product: Product) => {
         const currentCart = cart;
 
@@ -31,6 +35,8 @@ const App = ({products, categories, currency}: AppPropsType) => {
                 productsCount: currentCart.productsCount + 1,
                 totalPrice: currentCart.totalPrice + product.price,
             });
+
+            setFloatingCartOpen(true);
         }
     };
 
@@ -50,8 +56,17 @@ const App = ({products, categories, currency}: AppPropsType) => {
         setShopData(updatedShopData);
     };
 
+    const onFloatingCartOpen = () => {
+        setFloatingCartOpen(true);
+    }
+
+    const onFCartClose = () => {
+        setFloatingCartOpen(false);
+    }
+
     return (
         <div className="App">
+            <FloatingCart cart={cart} currencySymbol={currency} openHandler={onFloatingCartOpen} closeHandle={onFCartClose} onLikeClick={handleLikeClick} openState={floatingCartOpen}/>
             <Routes>
                 <Route
                     path="/"
@@ -64,14 +79,12 @@ const App = ({products, categories, currency}: AppPropsType) => {
                         currency={shopData.currency}
                         products={shopData.products}
                         onLikeClick={handleLikeClick}
-                        currentCart={cart}
                     />}/>
                 <Route
                     path="shop/:paramId"
                     element={<SingleProduct
                         products={shopData.products}
                         addToCart={addProductToCart}
-                        currentCart={cart}
                         currencySymbol={shopData.currency}
                         onLikeClick={handleLikeClick}
                     />}/>

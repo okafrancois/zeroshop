@@ -6,49 +6,35 @@ import {BrowserRouter} from "react-router-dom";
 import ProductModel from "./models/ProductModel";
 import {apiKey, apiUrl} from "./config";
 
-const root = ReactDOM.createRoot(
+const root: ReactDOM.Root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 
-const getProducts = async () => {
-    const myHeaders = new Headers();
-    myHeaders.append("Authorization", apiKey);
-
-    let data: any = null;
-
-    await fetch(`${apiUrl}/api/products?populate=*`, {
-        method: 'GET',
-        headers: myHeaders,
-        redirect: 'follow',
+const getProductsFromApi: Promise<any> = new Promise((resolve, reject) => {
+    fetch(`${apiUrl}/api/products?populate=*`, {
+        headers: {
+            'Authorization': `${apiKey}`
+        }
     })
         .then(response => response.json())
-        .then(result => data = result.data)
-        .catch(error => console.log('error', error));
+        .then(data => resolve(data.data))
+        .catch(error => reject(error));
+});
 
-    return data;
-}
-
-const getCategories = async () => {
-    const myHeaders = new Headers();
-    myHeaders.append("Authorization", apiKey);
-
-    let data: any = null;
-
-    await fetch(`${apiUrl}/api/product-categories`, {
-        method: 'GET',
-        headers: myHeaders,
-        redirect: 'follow'
+const getCategoriesFromApi: Promise<any> = new Promise((resolve, reject) => {
+    fetch(`${apiUrl}/api/product-categories`, {
+        headers: {
+            'Authorization': `${apiKey}`
+        }
     })
         .then(response => response.json())
-        .then(result => data = result.data)
-        .catch(error => console.log('error', error));
-
-    return data;
-};
+        .then(data => resolve(data.data))
+        .catch(error => reject(error));
+})
 
 const init = async () => {
 
-    const productItems = await getProducts()
+    const productItems = await getProductsFromApi
         .then(data => data.map((item: any) => ProductModel({
             id: item.id,
             title: item.attributes.title,
@@ -75,7 +61,7 @@ const init = async () => {
             }),
         })));
 
-    const categories = await getCategories()
+    const categories = await getCategoriesFromApi
         .then(data => {
             return data.map((item: any) => item.attributes.name);
         });

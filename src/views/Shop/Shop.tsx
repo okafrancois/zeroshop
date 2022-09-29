@@ -1,19 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './shop.scss';
-import {CartType, Product} from "../../components/types";
+import {Product} from "../../components/types";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import FloatingCart from "../../components/FloatingCart/FloatingCart";
 
 interface ShopProps {
     products: Product[];
     categories: object[];
     currency: string;
     onLikeClick: (id: number) => void;
-    currentCart: CartType;
 }
 
-const Shop = ({products, categories, currentCart, currency, onLikeClick}: ShopProps) => {
-    const [activeCategory, setActiveCategory] = React.useState('All');
+const Shop = ({products, categories, currency, onLikeClick}: ShopProps) => {
+    const [activeCategory, setActiveCategory] = useState('All');
 
     const categoryChangeHandler = (category: string) => {
         setActiveCategory(category);
@@ -23,7 +21,6 @@ const Shop = ({products, categories, currentCart, currency, onLikeClick}: ShopPr
         <div className={"shop-view container"}>
             <div className="page-headers">
                 <h1 className="title">Shop</h1>
-                <FloatingCart cart={currentCart} currencySymbol={currency} onLikeClick={onLikeClick}/>
             </div>
             <h1 className={"title"}>Explore <br/> trendy cloths</h1>
             <div className="shop-content">

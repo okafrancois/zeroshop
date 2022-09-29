@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {LegacyRef, MutableRefObject, useEffect, useRef} from 'react';
 import {CardProps} from "../types";
 import './product-card.scss';
 import {Link} from "react-router-dom";
@@ -9,14 +9,12 @@ const ProductCard = ({id, title, price, currency, likeState, imageUrl, onLikeCli
         onLikeClick(id);
     };
 
-    let cardImage = useRef(null);
-    let cardContent = useRef(null);
+    let cardImage: MutableRefObject<any | undefined> = useRef<HTMLElement>();
+    let cardContent: MutableRefObject<any | undefined> = useRef<HTMLElement>();
 
     useEffect(() => {
-        // @ts-ignore
-        cardContent.current.classList.add('fadeInUp');
-        // @ts-ignore
         cardImage.current.classList.add('fadeInUp');
+        cardContent.current.classList.add('fadeInUp');
     });
 
     return (

@@ -1,4 +1,8 @@
 .floating-cart {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+
   &__icon {
     display: flex;
     gap: 5px;

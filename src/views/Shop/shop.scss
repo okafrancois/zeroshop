@@ -3,14 +3,19 @@
 .filters {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 
-  &__option.--active  {
+  &__option {
+    transition: background-color, color;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    padding: 5px 10px;
+    border-radius: 10px;
+  }
+
+  &__option.--active, &__option:hover {
     background: #0c151a;
     color: white;
-    padding: 10px 15px;
-    border-radius: 15px;
-    min-width: 80px;
   }
 }
 
