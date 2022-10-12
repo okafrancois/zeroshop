@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './floating-cart.scss';
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {CartType} from "../types";
 import ProductCard from "../ProductCard/ProductCard";
+import bagIcon from '../../assets/img/bag-icon.svg';
 
 type FloatingCartProps = {
     cart: CartType;
@@ -23,13 +24,17 @@ const FloatingCart = ({cart, currencySymbol, onLikeClick, closeHandle, openHandl
         }
     };
 
+    const location = useLocation();
+
     return (
-        <div className={`floating-cart ${openState ? "--is-open" : ""}`}>
+        <div className={`floating-cart ${openState ? "--is-open" : ""} ${location.pathname === '/' ? '--disabled': ''}`}>
             <button className="floating-cart__icon" onClick={openHandler}>
                 <span className="floating-cart__count">
                     {productsCount}
                 </span>
-                <i className="fa-solid fa-bag-shopping"></i>
+                <i>
+                    <img src={bagIcon} alt=""/>
+                </i>
             </button>
 
             <div className="floating-cart__modal cart-modal" onClick={handleModalClick}>

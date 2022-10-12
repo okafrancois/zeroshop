@@ -1,14 +1,16 @@
 type ProductModelParams = {
     id: number;
     title: string;
+    slug: string;
     description: string;
     price: number;
     discountPercentage: number;
     rating: number;
     stock: number;
     brand: string;
-    category: string;
+    categories: string[];
     thumbnail: string;
+    images: any[];
     isInWishlist: boolean;
     sizes: { name: string; shortname: string}[];
     colors: { name: string; code: string}[];
@@ -24,8 +26,9 @@ const ProductModel = (data: ProductModelParams): {} => (
         rating: data.rating,
         stock: data.stock,
         brand: data.brand,
-        category: data.category,
+        categories: data.categories,
         thumbnail: data.thumbnail,
+        images: data.images,
         isInWishlist: data.isInWishlist,
         sizes: data.sizes,
         colors: data.colors,

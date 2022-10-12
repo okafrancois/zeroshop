@@ -13,7 +13,21 @@ type SingleProductParams = {
 const SingleProduct = ({products, addToCart, currencySymbol, onLikeClick}: SingleProductParams) => {
     const {paramId} = useParams<string>();
     const productId = parseInt(paramId as string);
-    const {title, price, thumbnail, colors, sizes } = products.find((product: Product) => product.id === productId) as Product;
+    const {title, price, thumbnail, colors, sizes, images } = products.find((product: Product) => product.id === productId) as Product;
+
+    const [galleryImage, setGalleryImage] = useState(() => {
+        if (images !== null) {
+            return images.map( item => {
+                return {
+                    id: item.id,
+                    url: item.attributes.url,
+                    active: false
+                }
+            });
+        } else {
+            return [];
+        }
+    });
 
     const [activeColor, setActiveColor] = useState(colors[0].name);
 

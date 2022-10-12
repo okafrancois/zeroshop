@@ -1,13 +1,12 @@
 import React from 'react';
 import './home.scss';
 import {Link} from "react-router-dom";
-import {apiUrl} from "../../config";
 
 const Home: React.FC = () => {
     return (
         <div className={"home-view container"}>
             <div className="cover">
-                <img src={`${apiUrl}/uploads/zero_shop_image_e21c3d96ac.jpg`} alt=""/>
+                <img src={`${import.meta.env.VITE_API_URL}/uploads/zero_shop_image_e21c3d96ac.jpg`} alt=""/>
             </div>
             <div className="content">
                 <h1 className={"title"}>Find the <br/> best collections</h1>

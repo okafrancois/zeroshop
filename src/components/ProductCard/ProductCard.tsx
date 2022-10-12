@@ -1,8 +1,7 @@
-import React, {LegacyRef, MutableRefObject, useEffect, useRef} from 'react';
+import React, {MutableRefObject, useEffect, useRef} from 'react';
 import {CardProps} from "../types";
 import './product-card.scss';
 import {Link} from "react-router-dom";
-import {apiUrl} from "../../config";
 
 const ProductCard = ({id, title, price, currency, likeState, imageUrl, onLikeClick, hidden}: CardProps) => {
     const handleLikeClick = () => {
@@ -26,7 +25,7 @@ const ProductCard = ({id, title, price, currency, likeState, imageUrl, onLikeCli
                     </button>
                 </div>
                 <Link to={`/shop/${id}`}>
-                    <img src={`${apiUrl}${imageUrl}`} alt={title}/>
+                    <img src={`${import.meta.env.VITE_API_URL}${imageUrl}`} alt={title}/>
                 </Link>
             </div>
             <Link className="product-card__content" to={`${id}`} ref={cardContent}>

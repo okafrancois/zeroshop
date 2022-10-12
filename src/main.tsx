@@ -4,48 +4,37 @@ import './index.scss';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import ProductModel from "./models/ProductModel";
-import {apiKey, apiUrl} from "./config";
+import {getCategoriesFromApi, getProductsFromApi} from "./utils/api-funcs";
 
 const root: ReactDOM.Root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 
-const getProductsFromApi: Promise<any> = new Promise((resolve, reject) => {
-    fetch(`${apiUrl}/api/products?populate=*`, {
-        headers: {
-            'Authorization': `${apiKey}`
-        }
-    })
-        .then(response => response.json())
-        .then(data => resolve(data.data))
-        .catch(error => reject(error));
-});
-
-const getCategoriesFromApi: Promise<any> = new Promise((resolve, reject) => {
-    fetch(`${apiUrl}/api/product-categories`, {
-        headers: {
-            'Authorization': `${apiKey}`
-        }
-    })
-        .then(response => response.json())
-        .then(data => resolve(data.data))
-        .catch(error => reject(error));
-})
-
 const init = async () => {
 
     const productItems = await getProductsFromApi
+        .then(data => {
+            console.log(data);
+            return data
+        })
         .then(data => data.map((item: any) => ProductModel({
             id: item.id,
             title: item.attributes.title,
+            slug: item.attributes.slug,
             description: item.attributes.description,
             price: item.attributes.price,
-            discountPercentage: item.attributes.discountPercentage,
-            rating: item.attributes.rating,
-            stock: item.attributes.stock,
+            discountPercentage: item.attributes?.discountPercentage ?? 0,
+            rating: item.attributes?.rating ?? null,
+            stock: item.attributes?.stock ?? 0,
             brand: item.attributes.brand,
-            category: item.attributes.product_category.data.attributes.dataname,
-            thumbnail: item.attributes.thumbnail.data.attributes.url,
+            categories: item.attributes.categories.data.map((item: any) => (
+                {
+                    name: item.attributes.name,
+                    slug: item.attributes.slug,
+                }
+            )) ?? ['all'],
+            thumbnail: item.attributes?.thumbnail.data.attributes.url,
+            images: item.attributes.images.data,
             isInWishlist: item.attributes.isInWishlist,
             sizes: item.attributes.sizes.data.map((size: any) => {
                 return {
@@ -59,7 +48,7 @@ const init = async () => {
                     code: color.attributes.hexacode
                 }
             }),
-        })));
+        })))
 
     const categories = await getCategoriesFromApi
         .then(data => {
