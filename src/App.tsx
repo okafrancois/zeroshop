@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import SingleProduct from "./views/SingleProduct/SingleProduct";
-import {Route, Routes} from "react-router-dom";
+import {Route, Routes, useLocation, useParams} from "react-router-dom";
 import Home from "./views/Home/Home";
 import Shop from "./views/Shop/Shop";
 import {AppPropsType, CartType, Product} from "./components/types";
@@ -8,19 +8,14 @@ import './app.scss';
 import FloatingCart from "./components/FloatingCart/FloatingCart";
 
 const App = ({products, categories, currency}: AppPropsType) => {
-    const [shopData, setShopData] = useState({
-        products: products,
-        categories: categories,
-        currency: currency
-    });
 
     const [cart, setCart] = useState<CartType>({
         items: [],
         productsCount: 0,
         totalPrice: 0,
     });
-
     const [floatingCartOpen, setFloatingCartOpen] = useState(false);
+    const [productsItems, setProductsItems] = useState(products);
 
     const addProductToCart = (product: Product) => {
         const currentCart = cart;
@@ -41,19 +36,14 @@ const App = ({products, categories, currency}: AppPropsType) => {
     };
 
     const handleLikeClick = (id: number) => {
-        const updatedProducts = shopData.products.map((product: Product) => {
+        const updatedProducts = products.map((product: Product) => {
             if (product.id === id) {
                 product.isInWishList = !product.isInWishList;
             }
             return product;
         });
 
-        const updatedShopData = {
-            ...shopData,
-            products: updatedProducts,
-        };
-
-        setShopData(updatedShopData);
+        setProductsItems(updatedProducts);
     };
 
     const onFloatingCartOpen = () => {
@@ -75,17 +65,17 @@ const App = ({products, categories, currency}: AppPropsType) => {
                 <Route
                     path="shop"
                     element={<Shop
-                        categories={shopData.categories}
-                        currency={shopData.currency}
-                        products={shopData.products}
+                        categories={categories}
+                        currency={currency}
+                        products={productsItems}
                         onLikeClick={handleLikeClick}
                     />}/>
                 <Route
-                    path="shop/:paramId"
+                    path="shop/:slug"
                     element={<SingleProduct
-                        products={shopData.products}
+                        products={productsItems}
                         addToCart={addProductToCart}
-                        currencySymbol={shopData.currency}
+                        currencySymbol={currency}
                         onLikeClick={handleLikeClick}
                     />}/>
             </Routes>

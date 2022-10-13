@@ -13,9 +13,7 @@ interface ShopProps {
 const Shop = ({products, categories, currency, onLikeClick}: ShopProps) => {
     const [activeCategory, setActiveCategory] = useState('All');
 
-    console.log(categories);
-
-    const categoryChangeHandler = (category: string) => {
+    const categoryChangeHandler = (category: string): void => {
         setActiveCategory(category);
     };
 
@@ -58,12 +56,8 @@ const Shop = ({products, categories, currency, onLikeClick}: ShopProps) => {
                         products.map((product) => (
                             <ProductCard
                                 key={product.id}
-                                id={product.id}
-                                title={product.title}
-                                price={product.price}
+                                product={product}
                                 currency={currency}
-                                likeState={product.isInWishList}
-                                imageUrl={product.thumbnail}
                                 onLikeClick={onLikeClick}
                                 hidden={!((activeCategory === "All") ||  product.categories.map(item => item.name).includes(activeCategory))}/>
                         ))

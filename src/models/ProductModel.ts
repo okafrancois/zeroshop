@@ -1,37 +1,37 @@
-type ProductModelParams = {
-    id: number;
-    title: string;
-    slug: string;
-    description: string;
-    price: number;
-    discountPercentage: number;
-    rating: number;
-    stock: number;
-    brand: string;
-    categories: string[];
-    thumbnail: string;
-    images: any[];
-    isInWishlist: boolean;
-    sizes: { name: string; shortname: string}[];
-    colors: { name: string; code: string}[];
-}
+import {formatApiCategory, formatApiImage} from "../utils/api-funcs";
+import {ProductModelParams} from "../components/types";
 
-const ProductModel = (data: ProductModelParams): {} => (
+const ProductModel = (data: ProductModelParams): Object => (
     {
         id: data.id,
-        title: data.title,
-        description: data.description,
-        price: data.price,
-        discountPercentage: data.discountPercentage,
-        rating: data.rating,
-        stock: data.stock,
-        brand: data.brand,
-        categories: data.categories,
-        thumbnail: data.thumbnail,
-        images: data.images,
-        isInWishlist: data.isInWishlist,
-        sizes: data.sizes,
-        colors: data.colors,
+        title: data.attributes.title,
+        slug: data.attributes.slug,
+        description: data.attributes.description,
+        price: data.attributes.price,
+        discountPercentage: data.attributes.discountPercentage ?? 0,
+        rating: data.attributes.rating ?? null,
+        stock: data.attributes.stock ?? 0,
+        brand: data.attributes.brand,
+        categories: data.attributes.categories.data?.map((category: any) => formatApiCategory(category)) ?? ['all'],
+        cover: {
+            id: data.attributes.cover.data.id,
+            altText: data.attributes.cover.data.attributes.alternativeText,
+            formats: data.attributes.cover.data.attributes.formats,
+        },
+        images: data.attributes.images.data?.map((image: any) => formatApiImage(image)) ?? [],
+        isInWishlist: data.attributes.isInWishlist,
+        sizes: data.attributes.sizes.data.map((size: any) => {
+            return {
+                name: size.attributes.name,
+                shortname: size.attributes.shortname,
+            }
+        }),
+        colors: data.attributes.colors.data.map((color: any) => {
+            return {
+                name: color.attributes.name,
+                code: color.attributes.hexacode
+            }
+        }),
     }
 );
 

@@ -30,6 +30,7 @@
     justify-content: space-between;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    position: relative;
   }
 
   &__title {
@@ -37,7 +38,13 @@
     font-size: 2.5rem;
     font-weight: 500;
     color: #0c151a;
-    max-width: 40%;
+    max-width: 60%;
+  }
+
+  &__desc {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    width: 100%;
   }
 
   &__colors {
@@ -46,6 +53,9 @@
     justify-content: flex-end;
     align-items: start;
     gap: 0.5rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
   }
 
   &__sizes {
@@ -68,6 +78,13 @@
       margin-left: 0.5rem;
       font-size: 1.2rem;
     }
+  }
+
+  .fav-btn {
+    height: 30px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    font-size: 1.5rem;
   }
 }
 

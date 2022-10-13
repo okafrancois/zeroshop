@@ -6,7 +6,7 @@ const Home: React.FC = () => {
     return (
         <div className={"home-view container"}>
             <div className="cover">
-                <img src={`${import.meta.env.VITE_API_URL}/uploads/zero_shop_image_e21c3d96ac.jpg`} alt=""/>
+                <img src={`${import.meta.env.VITE_API_URL}/uploads/zero_shop_image_8fd4236196.jpg`} alt=""/>
             </div>
             <div className="content">
                 <h1 className={"title"}>Find the <br/> best collections</h1>

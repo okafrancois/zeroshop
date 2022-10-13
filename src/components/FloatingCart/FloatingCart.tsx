@@ -50,12 +50,8 @@ const FloatingCart = ({cart, currencySymbol, onLikeClick, closeHandle, openHandl
                             items.map((item: any, index: number) => (
                                 <ProductCard
                                     key={`cart-item-${index}`}
-                                    id={item.id}
-                                    title={item.title}
-                                    price={item.price}
-                                    imageUrl={item.thumbnail}
+                                    product={item}
                                     currency={currencySymbol}
-                                    likeState={item.isInWishList}
                                     onLikeClick={onLikeClick}
                                     hidden={false}
                                 />
