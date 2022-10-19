@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import './shop.scss';
-import {Product} from "../../components/types";
+import {ShopCategory, ShopProduct} from "../../components/types";
 import ProductCard from "../../components/ProductCard/ProductCard";
 
 interface ShopProps {
-    products: Product[];
-    categories: object[];
+    products: ShopProduct[];
+    categories: ShopCategory[];
     currency: string;
     onLikeClick: (id: number) => void;
 }
@@ -35,16 +35,16 @@ const Shop = ({products, categories, currency, onLikeClick}: ShopProps) => {
                         </button>
                     </li>
                     {
-                        categories.map((category: any, index) => {
+                        categories.map((category: ShopCategory, index) => {
                             return (
                                 <li key={index}>
                                     <button
-                                        className={`filters__option ${activeCategory === category ? "--active" : ""}`}
+                                        className={`filters__option ${activeCategory === category.name ? "--active" : ""}`}
                                         onClick={() => {
-                                            categoryChangeHandler(category)
+                                            categoryChangeHandler(category.name)
                                         }}
                                     >
-                                        {category}
+                                        {category.name}
                                     </button>
                                 </li>
                             )

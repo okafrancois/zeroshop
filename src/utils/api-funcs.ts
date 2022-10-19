@@ -1,33 +1,14 @@
-import {apiCategoryItem, apiColorItem, ApiImageItem, RichImage, ShopCategory} from "../components/types";
+import {
+    apiCategoryItem,
+    ApiImageItem,
+    ProductFromApi,
+    RichImage,
+    ShopCategory
+} from "../components/types";
 
-type ProductsFromApi = {
-    id: number,
-    attributes: {
-        title: string,
-        description: string,
-        price: number,
-        discountPercentage: number,
-        rating: number,
-        stock: number,
-        brand: string,
-        isInWishlist: boolean,
-        slug: string,
-        cover: {
-            data: ApiImageItem | null,
-        }
-        images: {
-            data: ApiImageItem[] | null,
-        }
-        categories: {
-            data: apiCategoryItem[] | null,
-        }
-        colors: {
-            data: apiColorItem[] | null,
-        }
-    }
-}[]
+type ProductsDataFromApi = ProductFromApi[]
 
-const getProductsFromApi: Promise<ProductsFromApi> = new Promise((resolve, reject) => {
+const getProductsFromApi: Promise<ProductsDataFromApi> = new Promise((resolve, reject) => {
     fetch(`${import.meta.env.VITE_API_URL}/api/products?populate=*`, {
         headers: {
             'Authorization': `${import.meta.env.VITE_API_KEY}`,
@@ -38,7 +19,7 @@ const getProductsFromApi: Promise<ProductsFromApi> = new Promise((resolve, rejec
         .catch(error => reject(error));
 });
 
-const getCategoriesFromApi: Promise<any> = new Promise((resolve, reject) => {
+const getCategoriesFromApi: Promise<apiCategoryItem> = new Promise((resolve, reject) => {
     fetch(`${import.meta.env.VITE_API_URL}/api/categories`, {
         headers: {
             'Authorization': `${import.meta.env.VITE_API_KEY}`

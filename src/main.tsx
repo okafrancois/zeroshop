@@ -5,7 +5,7 @@ import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import ProductModel from "./models/ProductModel";
 import {getCategoriesFromApi, getProductsFromApi} from "./utils/api-funcs";
-import {ProductModelParams} from "./components/types";
+import {apiCategoryItem, ProductFromApi, ShopCategory, ShopProduct} from "./components/types";
 
 const root: ReactDOM.Root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -13,12 +13,17 @@ const root: ReactDOM.Root = ReactDOM.createRoot(
 
 const init = async () => {
 
-    const productItems = await getProductsFromApi
-        .then(data => data.map((item: ProductModelParams) => ProductModel(item)))
+    const productItems: ShopProduct[] = await getProductsFromApi
+        .then(data => data.map((item: ProductFromApi) => ProductModel(item)))
 
-    const categories = await getCategoriesFromApi
+    const categories: ShopCategory[] = await getCategoriesFromApi
         .then(data => {
-            return data.map((item: any) => item.attributes.name);
+            return data.map((item: apiCategoryItem) => {
+                return {
+                    name: item.attributes.name,
+                    slug: item.attributes.slug,
+                }
+            });
         });
 
     root.render(

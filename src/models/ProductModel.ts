@@ -1,7 +1,7 @@
 import {formatApiCategory, formatApiImage} from "../utils/api-funcs";
-import {ProductModelParams} from "../components/types";
+import {apiCategoryItem, ProductFromApi, ShopCategory, ShopProduct} from "../components/types";
 
-const ProductModel = (data: ProductModelParams): Object => (
+const ProductModel = (data: ProductFromApi): ShopProduct => (
     {
         id: data.id,
         title: data.attributes.title,
@@ -12,26 +12,12 @@ const ProductModel = (data: ProductModelParams): Object => (
         rating: data.attributes.rating ?? null,
         stock: data.attributes.stock ?? 0,
         brand: data.attributes.brand,
-        categories: data.attributes.categories.data?.map((category: any) => formatApiCategory(category)) ?? ['all'],
-        cover: {
-            id: data.attributes.cover.data.id,
-            altText: data.attributes.cover.data.attributes.alternativeText,
-            formats: data.attributes.cover.data.attributes.formats,
-        },
+        categories: data.attributes.categories.data?.map((category: apiCategoryItem): ShopCategory => formatApiCategory(category)) ?? [],
+        cover: data.attributes.cover.data ? formatApiImage(data.attributes.cover.data) : null,
         images: data.attributes.images.data?.map((image: any) => formatApiImage(image)) ?? [],
-        isInWishlist: data.attributes.isInWishlist,
-        sizes: data.attributes.sizes.data.map((size: any) => {
-            return {
-                name: size.attributes.name,
-                shortname: size.attributes.shortname,
-            }
-        }),
-        colors: data.attributes.colors.data.map((color: any) => {
-            return {
-                name: color.attributes.name,
-                code: color.attributes.hexacode
-            }
-        }),
+        isInWishList: data.attributes.isInWishlist ? data.attributes.isInWishlist : false,
+        sizes: data.attributes.sizes.data?.map((size: any) => ({name: size.attributes.name, shortname: size.attributes.shortname,})) ?? [],
+        colors: data.attributes.colors.data?.map((color: any) => ({name: color.attributes.name, code: color.attributes.hexacode})) ?? [],
     }
 );
 

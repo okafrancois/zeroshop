@@ -1,4 +1,4 @@
-type Product = {
+type ShopProduct = {
     id: number,
     title: string,
     description: string,
@@ -8,38 +8,24 @@ type Product = {
     stock: number,
     brand: string,
     slug: string,
-    categories: {
-        name: string,
-        slug: string,
-    }[],
-    cover: {
-        id: number,
-        altText: string,
-        formats: {
-            thumbnail: {
-                [key: string|number]: any,
-            },
-            [key: string|number]: any
-        }
-    },
-    images: {
-        [key: string|number]: any
-    }[],
+    categories: ShopCategory[] | [],
+    cover: RichImage | null,
+    images: RichImage[] | [],
     isInWishList: boolean,
-    sizes: { name: string, shortname: string}[],
-    colors: { name: string, code: string}[],
+    sizes: { name: string, shortname: string}[] | [],
+    colors: { name: string, code: string}[] | [],
 }
 
 // app component props data type
 type AppPropsType = {
-    products: any[];
-    categories: object[];
+    products: ShopProduct[];
+    categories: ShopCategory[];
     currency: string;
 }
 
 // product card component props type
 type CardProps = {
-    product: Product,
+    product: ShopProduct,
     currency: string,
     onLikeClick: (id: number) => void;
     hidden: boolean;
@@ -47,7 +33,7 @@ type CardProps = {
 
 // shop cart type
 type CartType = {
-    items: Product[];
+    items: ShopProduct[];
     productsCount: number;
     totalPrice: number;
 }
@@ -69,6 +55,45 @@ type ProductModelParams = {
         isInWishlist: boolean;
         sizes: any;
         colors: any;
+    }
+}
+
+type ProductFromApi = {
+    id: number;
+    attributes: {
+        title: string;
+        description: string;
+        price: number;
+        discountPercentage: number;
+        rating: number;
+        stock: number;
+        brand: string;
+        isInWishlist: boolean;
+        slug: string;
+        cover: {
+            data: ApiImageItem | null;
+        };
+        images: {
+            data: ApiImageItem[] | null;
+        };
+        colors: {
+            data: apiColorItem[] | null
+        };
+        categories: {
+            data: apiCategoryItem[] | null;
+        };
+        sizes: {
+            data: apiSizeItem[] | null;
+        }
+    }
+}
+
+type apiSizeItem = {
+    id: number;
+    attributes: {
+        name: string;
+        shortname: string;
+        [key: string|number]: any;
     }
 }
 
@@ -124,11 +149,13 @@ export type {
     AppPropsType,
     CardProps,
     CartType,
-    Product,
+    ShopProduct,
     ProductModelParams,
     RichImage,
     ApiImageItem,
     ShopCategory,
     apiCategoryItem,
     apiColorItem,
+    ProductFromApi,
+    apiSizeItem,
 }

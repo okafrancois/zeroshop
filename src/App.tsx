@@ -3,7 +3,7 @@ import SingleProduct from "./views/SingleProduct/SingleProduct";
 import {Route, Routes, useLocation, useParams} from "react-router-dom";
 import Home from "./views/Home/Home";
 import Shop from "./views/Shop/Shop";
-import {AppPropsType, CartType, Product} from "./components/types";
+import {AppPropsType, CartType, ShopProduct} from "./components/types";
 import './app.scss';
 import FloatingCart from "./components/FloatingCart/FloatingCart";
 
@@ -17,10 +17,10 @@ const App = ({products, categories, currency}: AppPropsType) => {
     const [floatingCartOpen, setFloatingCartOpen] = useState(false);
     const [productsItems, setProductsItems] = useState(products);
 
-    const addProductToCart = (product: Product) => {
+    const addProductToCart = (product: ShopProduct) => {
         const currentCart = cart;
 
-        const isProductInCart = currentCart.items.find((item: Product) => item.id === product.id);
+        const isProductInCart = currentCart.items.find((item: ShopProduct) => item.id === product.id);
 
         if (isProductInCart) {
             return;
@@ -36,7 +36,7 @@ const App = ({products, categories, currency}: AppPropsType) => {
     };
 
     const handleLikeClick = (id: number) => {
-        const updatedProducts = products.map((product: Product) => {
+        const updatedProducts = products.map((product: ShopProduct) => {
             if (product.id === id) {
                 product.isInWishList = !product.isInWishList;
             }

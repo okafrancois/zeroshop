@@ -9,15 +9,11 @@
       height: 100%;
       object-fit: cover;
       overflow: hidden;
-      border-radius: 10%;
+      border-radius: 5%;
     }
 
     a {
       display: block;
-    }
-
-    &:hover {
-      transform: scale(1.10);
     }
   }
 
@@ -53,6 +49,14 @@
     font-weight: 400;
     color: #0c151a;
     margin-top: 0.5rem;
+  }
+}
+
+.shop-content .product-card{
+  &__image {
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 }
 

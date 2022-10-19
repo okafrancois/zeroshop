@@ -1,22 +1,22 @@
 import React, {useState} from 'react';
 import './single-product.scss';
 import {Link, useParams} from "react-router-dom";
-import {Product} from "../../components/types";
+import {ShopProduct} from "../../components/types";
 import ImageCarousel from "../../components/ImageCarousel/ImageCarousel";
 
 type SingleProductParams = {
-    products: Product[];
-    addToCart: (product: Product) => void;
+    products: ShopProduct[];
+    addToCart: (product: ShopProduct) => void;
     currencySymbol: string;
     onLikeClick: (id: number) => void;
 }
 
 const SingleProduct = ({products, addToCart, currencySymbol, onLikeClick}: SingleProductParams) => {
     const {slug} = useParams<string>();
-    const product: Product | undefined = products.find((product: Product) => product.slug === slug);
+    const product: ShopProduct | undefined = products.find((product: ShopProduct) => product.slug === slug);
 
     if (product) {
-        const {id, title, description, price, cover, colors, sizes, images, isInWishList } = product as Product;
+        const {id, title, description, price, cover, colors, sizes, images, isInWishList } = product as ShopProduct;
         const [galleryImage, setGalleryImage] = useState(images);
         const [activeColor, setActiveColor] = useState(colors[0].name);
         const [activeSize, setActiveSize] = useState(sizes[0].name);
